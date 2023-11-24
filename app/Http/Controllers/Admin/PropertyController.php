@@ -6,6 +6,7 @@ use App\Models\Option;
 use App\Models\Property;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\Admin\PropertyFormRequest;
 
 class PropertyController extends Controller
@@ -13,6 +14,11 @@ class PropertyController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+    public function __construct()
+    {
+       $this->authorizeResource(Property::class, 'property'); 
+    }
     public function index()
     {
         return view('admin.properties.index',[
