@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Facades\App\Weather;
 use App\Models\Option;
 use App\Models\Property;
 use Illuminate\Http\Request;
@@ -23,7 +22,6 @@ class PropertyController extends Controller
     }
     public function index()
     {
-        dd(Weather::isSunnyTomorrow());
         return view('admin.properties.index',[
             'properties' => Property::orderBy('created_at', 'desc')->withTrashed()->paginate(25) // Organise nos maisons par ordre décroissante
         ]);

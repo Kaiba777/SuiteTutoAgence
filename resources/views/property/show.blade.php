@@ -23,9 +23,8 @@
                 @csrf
 
                 <div class="row">
-                    <x-input class="col" name="firstname" lable="Prénom"/>
-                @include('shared.input', ['class' => 'col', 'name' => 'lastname', 'label' => 'Nom'])
-                @include('shared.input', ['class' => 'col', 'name' => 'firstname', 'label' => 'Prénom'])
+                    @include('shared.input', ['class' => 'col', 'name' => 'lastname', 'label' => 'Nom'])
+                    @include('shared.input', ['class' => 'col', 'name' => 'firstname', 'label' => 'Prénom'])
                 </div>
 
                 <div class="row">
