@@ -2,9 +2,7 @@
 
 @section('content')
 
-    <x-alert type="success">
-        Des informations
-    </x-alert>  
+    <x-weather></x-weather>  
 
     <div class="bg-light p-5 mb-5 text-center">
         <div class="container">
