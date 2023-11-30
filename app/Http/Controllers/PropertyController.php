@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Jobs\DemoJob;
 use App\Models\Property;
 use Illuminate\Http\Request;
 use App\Mail\PropertyContactMail;
@@ -43,6 +44,7 @@ class PropertyController extends Controller
 
     public function show (string $slug, Property $property)
     {
+        DemoJob::dispatch($property)->delay(now()->addSeconds(10));
         $expectedSlug = $property->getSlug();
         if($slug != $expectedSlug) {
             return to_route('property.show', ['slug' => $expectedSlug, 'property' => $property]);

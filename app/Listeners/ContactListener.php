@@ -23,7 +23,7 @@ class ContactListener implements ShouldQueue
     public function handle(ContactRequestEvent $event): void
     {
         // Permet de mettre un ralentissement
-        sleep(3);
+        // sleep(3);
         // Permet d'exécuter les actions des événements
         $this->mailer->send(new PropertyContactMail($event->property, $event->data));
     }

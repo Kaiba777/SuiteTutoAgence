@@ -7,8 +7,8 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
-
-class ContactRequestNotification extends Notification
+// ShouldQueue permet d'utiliser la file d'attente
+class ContactRequestNotification extends Notification implements ShouldQueue
 {
     use Queueable;
 
@@ -35,6 +35,8 @@ class ContactRequestNotification extends Notification
      */
     public function toMail(object $notifiable): MailMessage
     {
+        sleep(2); // permet de ralentir l'envoi d'email
+        
         return (new MailMessage)
                     ->line('The introduction to the notification.')
                     ->action('Notification Action', url('/'))
